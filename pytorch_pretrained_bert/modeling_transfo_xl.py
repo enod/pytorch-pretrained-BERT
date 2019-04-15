@@ -62,9 +62,9 @@ def build_tf_to_pytorch_map(model, config):
 
     if hasattr(model, 'transformer'):
         # We are loading in a TransfoXLLMHeadModel => we will load also the Adaptive Softmax
-        tf_to_pt_map.update({
-            "transformer/adaptive_softmax/cutoff_0/cluster_W": model.crit.cluster_weight,
-            "transformer/adaptive_softmax/cutoff_0/cluster_b": model.crit.cluster_bias})
+       # tf_to_pt_map.update({
+       #     "transformer/adaptive_softmax/cutoff_0/cluster_W": model.crit.cluster_weight,
+       #     "transformer/adaptive_softmax/cutoff_0/cluster_b": model.crit.cluster_bias})
         for i, (out_l, proj_l, tie_proj) in enumerate(zip(
                                 model.crit.out_layers,
                                 model.crit.out_projs,
