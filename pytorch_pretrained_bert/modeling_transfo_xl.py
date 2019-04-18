@@ -146,9 +146,9 @@ def load_tf_weights_in_transfo_xl(model, config, tf_path):
         print("Loading TF weight {} with shape {}".format(name, shape))
         array = tf.train.load_variable(tf_path, name)
         tf_weights[name] = array
-    print(tf_to_pt_map.items())
+
     for name, pointer in tf_to_pt_map.items():
-        print('PRINTING POINTER: ', pointer)
+        print('PRINTING POINTER: ', len(pointer))
         assert name in tf_weights
         array = tf_weights[name]
         # adam_v and adam_m are variables used in AdamWeightDecayOptimizer to calculated m and v
